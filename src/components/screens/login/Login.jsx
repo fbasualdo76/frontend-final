@@ -28,11 +28,11 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="email">Ingrese su email:</label>
-                    <input placeholder='joeDoe@gmail.com' id='email' name='email' />
+                    <input placeholder='joeDoe@gmail.com' id='email' name='email' value={'frankito@gmail.com'} />
                 </div>
                 <div>
                     <label htmlFor="password">Ingrese su contraeña:</label>
-                    <input type='text' placeholder='******' id='password' name='password' />
+                    <input type='text' placeholder='******' id='password' name='password' value={'fran123'}/>
                 </div>
                 <span>Si no estás registrado, <Link to='/register'>registrate</Link></span>
                 <button type='submit'>LOGIN</button>
