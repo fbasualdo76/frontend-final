@@ -11,7 +11,7 @@ const Products = () => {
                 const productosObtenidos = await obtenerProductos()
                 setProductos(productosObtenidos)
                 //setErrorText('')
-            } catch (error) {
+            } catch (error) {//4. captura el error que viene el products.fetching y setea el mensaje en el estado de errorText.
                 //console.error('Error al obtener los productos:', error)
                 setErrorText(error.message)
             }
@@ -22,7 +22,7 @@ const Products = () => {
     return (
         <>
             <h1>Listado de productos.</h1>
-            {errorText && <span style={{ color: 'red' }}>{errorText}</span>}{/*si hay error en product.fetching.js/obtenerProductos lo muestra aca.*/}
+            {errorText && <span style={{ color: 'red' }}>{errorText}</span>}{/*si hay error lo muestra aca.*/}
             <ul>
                 {productos.map((producto) => (
                     <li key={producto.id}>{producto.titulo}{producto.descripcion}</li>

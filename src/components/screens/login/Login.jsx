@@ -16,7 +16,7 @@ const Login = () => {
             await login(usuario)
             setErrorText('')
             navigate('/home')
-        } catch (error) {//4. capttura el error que viene el auth.fetching y setea el mensaje en el estado de errorText.
+        } catch (error) {//4. captura el error que viene el auth.fetching y setea el mensaje en el estado de errorText.
             //console.log(error)
             setErrorText(error.message)
         }
@@ -24,7 +24,7 @@ const Login = () => {
     return (
         <>
             <h1>LOGIN.</h1>
-            {errorText && <span style={{ color: 'red' }}>{errorText}</span>}
+            {errorText && <span style={{ color: 'red' }}>{errorText}</span>}{/*si hay error lo muestra aca.*/}
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="email">Ingrese su email:</label>
