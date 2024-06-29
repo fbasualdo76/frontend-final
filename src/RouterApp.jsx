@@ -4,8 +4,9 @@ import Login from './components/screens/login/Login'
 import Register from './components/screens/register/Register'
 import Home from './components/screens/home/Home'
 import { verifyToken } from './components/fetching/auth.fetching'
-import Products from './components/screens/products/Products'
+import ListProducts from './components/screens/products/ListProducts'
 import RegisterProduct from './components/screens/products/RegisterProduct'
+import DetailProduct from './components/screens/products/DetailProduct'
 
 
 
@@ -41,7 +42,8 @@ const RouterApp = () => {
       <Route path='/login' element={<Login />} />
       <Route path='/home' element={<Home />} />
       <Route path='/registerproduct' element={<RegisterProduct />} />
-      <Route path='/products' element={<Products />} />
+      <Route path='/products' element={<ListProducts />} />
+      <Route path='/detailproduct/:id' element={<DetailProduct />}/>
     </Routes>
   )
 }
