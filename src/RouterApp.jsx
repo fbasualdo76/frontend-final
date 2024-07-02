@@ -7,6 +7,7 @@ import { verifyToken } from './components/fetching/auth.fetching'
 import ListProducts from './components/screens/products/ListProducts'
 import RegisterProduct from './components/screens/products/RegisterProduct'
 import DetailProduct from './components/screens/products/DetailProduct'
+import EditProduct from './components/screens/products/EditProduct'
 
 
 
@@ -44,6 +45,7 @@ const RouterApp = () => {
       <Route path='/registerproduct' element={<RegisterProduct />} />
       <Route path='/products' element={<ListProducts />} />
       <Route path='/detailproduct/:id' element={<DetailProduct />}/>
+      <Route path='/editproduct/:id' element={<EditProduct />}/>
     </Routes>
   )
 }

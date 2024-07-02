@@ -33,6 +33,7 @@ const Products = () => {
                         <li
                             key={producto.id}>{producto.titulo}{producto.descripcion}
                             <Link to={`/detailproduct/${producto.id}`}>VER DETALLE</Link>
+                            <Link to={`/editproduct/${producto.id}`}>EDITAR PRODUCTO</Link>
                         </li>
                     ))}
                 </ul>

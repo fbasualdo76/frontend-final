@@ -16,7 +16,7 @@ const Register = () => {
             await register(usuario)
             setErrorText('')
             navigate('/login')
-        } catch (error) {//4. capttura el error que viene el auth.fetching y setea el mensaje en el estado de errorText.
+        } catch (error) {//4. captura el error que viene el auth.fetching y setea el mensaje en el estado de errorText.
             //console.log(error)
             setErrorText(error.message)
         }

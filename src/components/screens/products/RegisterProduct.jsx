@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { register } from '../../fetching/auth.fetching'
 import { useNavigate } from 'react-router-dom'
 import CustomTextField from '../../customComponents/CustomTextField'
 import { registrarProducto } from '../../fetching/products.fetching'
@@ -17,12 +16,10 @@ const RegisterProduct = () => {
                 precio: event.target.precio.value,
                 codigo: event.target.codigo.value
             }
-            console.log(producto)
             await registrarProducto(producto)
             setErrorText('')
             navigate('/products')
-        } catch (error) {//4. capttura el error que viene el auth.fetching y setea el mensaje en el estado de errorText.
-            console.log(error)
+        } catch (error) {//4. captura el error que viene el auth.fetching y setea el mensaje en el estado de errorText.
             setErrorText(error.message)
         }
     }
@@ -37,8 +34,9 @@ const RegisterProduct = () => {
                         label="Título"
                         variant="outlined"
                         name={"titulo"}
+                        defaultValue={false}
                         required={true}
-                        fullWidth={false}                        
+                        fullWidth={false}
                     />
                 </div>
                 <div>
@@ -47,8 +45,9 @@ const RegisterProduct = () => {
                         label="Descripción"
                         variant="outlined"
                         name={"descripcion"}
+                        defaultValue={false}
                         required={true}
-                        fullWidth={false}                        
+                        fullWidth={false}
                     />
                 </div>
                 <div>
@@ -57,8 +56,9 @@ const RegisterProduct = () => {
                         label="Stock"
                         variant="outlined"
                         name={"stock"}
+                        defaultValue={false}
                         required={true}
-                        fullWidth={false}                        
+                        fullWidth={false}
                     />
                 </div>
                 <div>
@@ -67,8 +67,9 @@ const RegisterProduct = () => {
                         label="Precio"
                         variant="outlined"
                         name={"precio"}
+                        defaultValue={false}
                         required={true}
-                        fullWidth={false}                        
+                        fullWidth={false}
                     />
                 </div>
                 <div>
@@ -77,8 +78,9 @@ const RegisterProduct = () => {
                         label="Código"
                         variant="outlined"
                         name={"codigo"}
+                        defaultValue={false}
                         required={true}
-                        fullWidth={false}                        
+                        fullWidth={false}
                     />
                 </div>
                 {/*<div>

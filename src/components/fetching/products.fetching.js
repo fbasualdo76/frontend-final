@@ -23,8 +23,7 @@ export const obtenerProductos = async () => {//obtiene todos los productos
 
 export const obtenerDetalleProducto = async (id) => {//obtiene el detalle del producto por id
     try {
-        const result = await HTTP.GET(URL.URL_API + ROUTE + '/' + id)
-        //console.log(result)
+        const result = await HTTP.GET(URL.URL_API + ROUTE + '/' + id)        
         if (result.status !== 200) {
             throw result//1. tira el result como un error para ser atrapado por el catch de abajo.
         }
@@ -36,13 +35,24 @@ export const obtenerDetalleProducto = async (id) => {//obtiene el detalle del pr
 
 export const registrarProducto = async (producto) => {
     try {
-        const result = await HTTP.POST(URL.URL_API + ROUTE + '/registerproduct', producto)
-        //console.log(result)
-        if (!result.ok) {
+        const result = await HTTP.POST(URL.URL_API + ROUTE, producto)
+        if (result.status !== 200) {
             throw result//1. tira el result como un error para ser atrapado por el catch de abajo.
         }
+        return result // devuelve el resultado exitoso en lugar de lanzar un error.
     } catch (error) {//2. atrapa el result (error).
-        //console.log('ERROR EN EL LOGUEO', error)
         throw { message: error.message }//3. vuelvo a lanzarlo solamente con el mensaje para enviarle al handleSubmit del form cuando haya un error.
+    }
+}
+
+export const actualizarProducto = async (id, producto) => {
+    try {
+        const result = await HTTP.PUT(URL.URL_API + ROUTE + '/' + id, producto)
+        if (result.status !== 200) {
+            throw result
+        }
+        return result
+    } catch (error) {
+        throw { message: error.message }
     }
 }
