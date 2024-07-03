@@ -56,3 +56,15 @@ export const actualizarProducto = async (id, producto) => {
         throw { message: error.message }
     }
 }
+
+export const eliminarProducto = async (id) => {
+    try {
+        const result = await HTTP.DELETE(URL.URL_API + ROUTE + '/' + id)
+        if (result.status !== 200) {
+            throw result
+        }
+        return result
+    } catch (error) {
+        throw { message: error.message }
+    }
+}

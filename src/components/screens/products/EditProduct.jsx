@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import CustomTextField from '../../customComponents/CustomTextField'
-import { obtenerDetalleProducto } from '../../fetching/products.fetching'
-import { actualizarProducto } from '../../fetching/products.fetching'
+import { obtenerDetalleProducto, actualizarProducto } from '../../fetching/products.fetching'
 
 const EditProduct = () => {
     const { id } = useParams()
@@ -37,7 +35,7 @@ const EditProduct = () => {
                 precio: event.target.precio.value,
                 codigo: event.target.codigo.value
             }
-            await actualizarProducto(id,producto)
+            await actualizarProducto(id, producto)
             setErrorText('')
             navigate('/products')
         } catch (error) {//4. captura el error que viene el auth.fetching y setea el mensaje en el estado de errorText.
@@ -48,7 +46,7 @@ const EditProduct = () => {
         <>
             <h1>EDITAR PRODUCTO.</h1>
             {errorText && <span style={{ color: 'red' }}>{errorText}</span>}{/*si hay error lo muestra aca.*/}
-            {loading ? <h2>CARGANDO FORMULARIO PARA EDITAR EL PRODUCTO...</h2> :
+            {loading ? <h2>CARGANDO FORMULARIO...</h2> :
                 <form onSubmit={handleSubmit}>
                     <div>
                         <CustomTextField

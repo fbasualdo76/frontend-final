@@ -8,6 +8,7 @@ import ListProducts from './components/screens/products/ListProducts'
 import RegisterProduct from './components/screens/products/RegisterProduct'
 import DetailProduct from './components/screens/products/DetailProduct'
 import EditProduct from './components/screens/products/EditProduct'
+import DeleteProduct from './components/screens/products/DeleteProduct'
 
 
 
@@ -46,6 +47,7 @@ const RouterApp = () => {
       <Route path='/products' element={<ListProducts />} />
       <Route path='/detailproduct/:id' element={<DetailProduct />}/>
       <Route path='/editproduct/:id' element={<EditProduct />}/>
+      <Route path='/deleteproduct/:id' element={<DeleteProduct />}/>
     </Routes>
   )
 }

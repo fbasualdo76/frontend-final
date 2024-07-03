@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { obtenerProductos } from '../../fetching/products.fetching'
 import { Link } from 'react-router-dom'
 
-const Products = () => {
+const ListProducts = () => {
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
     const [errorText, setErrorText] = useState('')
-
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -34,6 +34,7 @@ const Products = () => {
                             key={producto.id}>{producto.titulo}{producto.descripcion}
                             <Link to={`/detailproduct/${producto.id}`}>VER DETALLE</Link>
                             <Link to={`/editproduct/${producto.id}`}>EDITAR PRODUCTO</Link>
+                            <Link to={`/deleteproduct/${producto.id}`}>ELIMINAR PRODUCTO</Link>
                         </li>
                     ))}
                 </ul>
@@ -43,4 +44,4 @@ const Products = () => {
     )
 }
 
-export default Products
+export default ListProducts
