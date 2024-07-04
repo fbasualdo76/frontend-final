@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import NavBar from '../../navBar/NavBar'
+import ListProducts from '../products/ListProducts'
+
 
 const Home = () => {
+  //const [favorites, setFavorites] = useState(false);
+  //estados de Modal.
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
-    <div><h1>Bienvenido!</h1></div>
+    <>
+      <NavBar /*setFavorites={setFavorites} */handleOpen={handleOpen} />
+      <ListProducts/>
+    </>
   )
 }
 
