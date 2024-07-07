@@ -14,8 +14,8 @@ const CardProduct = ({ producto }) => {
   return (
     <>
       <Card
-        producto={producto}
-        sx={{ width: 300, height: 500 }}>
+        //producto={producto}
+        sx={{ width: 300, height: 470 }}>
 
         <CardHeader
           title={producto.titulo}
@@ -23,15 +23,16 @@ const CardProduct = ({ producto }) => {
         />
         <CardMedia
           component="img"
-          height="194"
-          image={producto.img}
+          height="200"
+          image={producto.imagen}
           alt={`Imagen de ${producto.titulo}`}
         />
-        <CardContent sx={{ height: 150 }}>
+        <CardContent sx={{ height: 100 }}>
           <Typography variant="body2" color="text.secondary">
-            {producto.description}
+            {producto.descripcion}
           </Typography>
         </CardContent>
+
         <CardActions sx={{ display: "flex", justifyContent: "space-between" }}>
 
           {/*<IconButton aria-label="add to favorites" onClick={() => handleLike(movie)}>
@@ -57,7 +58,7 @@ const CardProduct = ({ producto }) => {
           {/*<Button onClick={() => deleteMovie(movie.id)} variant="contained" color="primary">ELIMINAR</Button>*/}
 
         </CardActions>
-        
+
       </Card >
     </>
   )

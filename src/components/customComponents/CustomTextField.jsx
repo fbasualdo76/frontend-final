@@ -2,7 +2,7 @@ import React from 'react'
 import TextField from '@mui/material/TextField'
 const CustomTextField = ({ /*id,*/ label, variant, name, defaultValue, required, fullWidth }) => {
     return (
-        <TextField
+        <TextField sx={{ mt: 1 }}
             //id={id}
             label={label}
             variant={variant}
@@ -10,6 +10,7 @@ const CustomTextField = ({ /*id,*/ label, variant, name, defaultValue, required,
             defaultValue={defaultValue}
             required={required}
             fullWidth={fullWidth}
+
         />
     )
 }

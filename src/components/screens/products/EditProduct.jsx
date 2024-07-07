@@ -30,6 +30,7 @@ const EditProduct = () => {
             event.preventDefault()//previene que el formulario se envíe, porque si se envía la página se va a recargar.
             const producto = {
                 titulo: event.target.titulo.value,
+                imagen: event.target.imagen.value,
                 descripcion: event.target.descripcion.value,
                 stock: event.target.stock.value,
                 precio: event.target.precio.value,
@@ -55,6 +56,17 @@ const EditProduct = () => {
                             variant="outlined"
                             name={"titulo"}
                             defaultValue={producto.titulo}
+                            required={true}
+                            fullWidth={false}
+                        />
+                    </div>
+                    <div>
+                        <CustomTextField
+                            //id="outlined-basic"
+                            label="Imagen"
+                            variant="outlined"
+                            name={"imagen"}
+                            defaultValue={producto.imagen}
                             required={true}
                             fullWidth={false}
                         />

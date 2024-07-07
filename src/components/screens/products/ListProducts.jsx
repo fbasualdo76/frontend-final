@@ -3,7 +3,7 @@ import { obtenerProductos } from '../../fetching/products.fetching'
 import { Link } from 'react-router-dom'
 import CardProduct from '../../card/CardProduct'
 
-const ListProducts = () => {
+const ListProducts = ({ productoCreado }) => {
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
     const [errorText, setErrorText] = useState('')
@@ -21,12 +21,11 @@ const ListProducts = () => {
             }
         }
         fetchData()
-    }, [])
+    }, [productoCreado])
 
     //console.log(productos)//mostrar aca que me devuelve el array de objetos.
     return (
         <>
-            <h1>LISTADO DE PRODUCTOS.</h1>
             {errorText && <span style={{ color: 'red' }}>{errorText}</span>}{/*si hay error lo muestra aca.*/}
             {loading ? <h2>CARGANDO PRODUCTOS...</h2> :
                 <div style={{
@@ -42,7 +41,7 @@ const ListProducts = () => {
                 }}>
 
                     {productos.map((producto) => (
-                        <Link key={producto.id} to={`/detailproduct/${producto.id}`}>
+                        <Link key={producto.id} to={`/detailproduct/${producto.id}`} style={{ textDecoration: 'none' }}>
                             <CardProduct
                                 producto={producto}
                             />
