@@ -32,7 +32,7 @@ const ListProducts = ({ productoCreado }) => {
                     //backgroundColor: "black",
                     display: "flex",
                     //minHeight: "100vh",
-                    //justifyContent: "center",
+                    justifyContent: "space-between",
                     //alignItems: "center",
                     gap: "30px",
                     padding: "20px",

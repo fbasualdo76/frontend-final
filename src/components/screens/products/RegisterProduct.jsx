@@ -63,7 +63,7 @@ const RegisterProduct = ({ open, handleClose, setProductoCreado }) => {
                         {errorText && <span style={{ color: 'red' }}>{errorText}</span>}{/*si hay error lo muestra aca.*/}
 
                         {/*<Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                            A modo de prueba se cargan valores por defecto.
+                            Alguna descripción.
                         </Typography}>*/}
 
                         <div>
@@ -80,7 +80,7 @@ const RegisterProduct = ({ open, handleClose, setProductoCreado }) => {
                         <div>
                             <CustomTextField
                                 //id="outlined-basic"
-                                label="Imagen"
+                                label="URL de la imagen"
                                 variant="outlined"
                                 name={"imagen"}
                                 //defaultValue={false}

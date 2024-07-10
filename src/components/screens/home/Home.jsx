@@ -12,7 +12,7 @@ const Home = () => {
   const handleClose = () => setOpen(false);
   //estados de crear y eliminar un producto.
   const [productoCreado, setProductoCreado] = useState(false)
-  const [productoEliminado, setProductoEliminado] = useState(false)
+  
   return (
     <>
       <NavBar
