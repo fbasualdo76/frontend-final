@@ -37,7 +37,7 @@ const ListProducts = ({ productoCreado }) => {
                     gap: "30px",
                     padding: "20px",
                     flexWrap: "wrap",
-                    marginTop: '64px', // Add margin at the top
+                    marginTop: '54px', // Add margin at the top
                 }}>
 
                     {productos.map((producto) => (

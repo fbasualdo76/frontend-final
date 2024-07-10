@@ -15,7 +15,7 @@ const CardProduct = ({ producto }) => {
     <>
       <Card
         //producto={producto}
-        sx={{ width: 300, height: 470 }}>
+        sx={{ width: 260, height: 470 }}>
 
         <CardHeader
           title={producto.titulo}

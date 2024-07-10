@@ -3,8 +3,6 @@ import NavBar from '../../navBar/NavBar'
 import RegisterProduct from '../products/RegisterProduct'
 import ListProducts from '../products/ListProducts'
 
-
-
 const Home = () => {
   //const [favorites, setFavorites] = useState(false);
 

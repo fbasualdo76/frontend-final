@@ -5,13 +5,13 @@ import { useState } from "react";
 const NavBar = ({ window, /*setFavorites,*/ handleOpen }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const drawerWidth = 240;
-  const navItems = ['AGREGAR'/*, 'TODAS', 'FAVORITAS'*/];
+  const navItems = ['AGREGAR PRODUCTO'/*, 'TODAS', 'FAVORITAS'*/];
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
   const handleClick = (item) => {
     switch (item) {
-      case 'AGREGAR':
+      case 'AGREGAR PRODUCTO':
         handleOpen();
         break;
       /*case 'TODAS':
@@ -27,7 +27,7 @@ const NavBar = ({ window, /*setFavorites,*/ handleOpen }) => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', backgroundColor: '#1976d2', height: '100%' }}>
       <Typography variant="h6" sx={{ my: 2, color: '#fff' }}>
-        Mis películas
+        Mis productos
       </Typography>
       <Divider sx={{ backgroundColor: '#fff' }} />
       <List>
@@ -61,7 +61,7 @@ const NavBar = ({ window, /*setFavorites,*/ handleOpen }) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            Mis películas
+            Mis productos
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (

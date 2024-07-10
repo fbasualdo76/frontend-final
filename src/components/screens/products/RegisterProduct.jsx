@@ -32,7 +32,7 @@ const RegisterProduct = ({ open, handleClose, setProductoCreado }) => {
             }
             await registrarProducto(producto)
             setErrorText('')
-            handleClose() // cierra el modal
+            handleClose() // cierra el modal.
             setProductoCreado(true)
             //navigate('/home'); // redirige a la página de inicio
         } catch (error) {//4. captura el error que viene el auth.fetching y setea el mensaje en el estado de errorText.
