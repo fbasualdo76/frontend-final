@@ -1,25 +1,23 @@
 import { AppBar, Box, Button, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const NavBar = ({ window, /*setFavorites,*/ handleOpen }) => {
+
+const NavBar = ({ window/*, handleOpen*/ }) => {
+  const navigate = useNavigate()
   const [mobileOpen, setMobileOpen] = useState(false);
   const drawerWidth = 240;
-  const navItems = ['AGREGAR PRODUCTO'/*, 'TODAS', 'FAVORITAS'*/];
+  const navItems = ['AGREGAR PRODUCTO'/*,'OTRO LINK'*/];
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
   const handleClick = (item) => {
     switch (item) {
       case 'AGREGAR PRODUCTO':
-        handleOpen();
+        //handleOpen();
+        navigate('/registerproduct')
         break;
-      /*case 'TODAS':
-        setFavorites(false);
-        break;
-      case 'FAVORITAS':
-        setFavorites(true);
-        break;*/
       default:
         console.log('No se reconoce la acción');
     }

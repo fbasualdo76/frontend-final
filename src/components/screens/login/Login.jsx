@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { login } from '../../fetching/auth.fetching'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import CustomTextField from '../../customComponents/CustomTextField'
-import { Button, Grid } from '@mui/material'
+import { Button } from '@mui/material'
 import CustomCard from '../../customComponents/CustomCard'
 
 const Login = () => {
@@ -80,7 +80,6 @@ const Login = () => {
                 <span>Si no estás registrado, <Link to='/register'>registrate</Link></span>
                 <button type='submit'>LOGIN</button>
             </form>*/}
-
         </>
     )
 }

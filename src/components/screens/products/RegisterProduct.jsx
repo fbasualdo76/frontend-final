@@ -2,21 +2,10 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CustomTextField from '../../customComponents/CustomTextField'
 import { registrarProducto } from '../../fetching/products.fetching'
-import { Modal, Box, Typography, TextField, Button } from '@mui/material';
+import { Button } from '@mui/material';
+import CustomCard from '../../customComponents/CustomCard';
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '80vw',
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 2,
-};
-
-const RegisterProduct = ({ open, handleClose, setProductoCreado }) => {
+const RegisterProduct = () => {
     const [errorText, setErrorText] = useState('')
     const navigate = useNavigate()
     const handleSubmit = async (event) => {
@@ -32,22 +21,17 @@ const RegisterProduct = ({ open, handleClose, setProductoCreado }) => {
             }
             await registrarProducto(producto)
             setErrorText('')
-            handleClose() // cierra el modal.
-            setProductoCreado(true)
-            //navigate('/home'); // redirige a la página de inicio
+            navigate('/home'); // redirige a la página de inicio
         } catch (error) {//4. captura el error que viene el auth.fetching y setea el mensaje en el estado de errorText.
             setErrorText(error.message)
         }
     }
     return (
         <>
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description">
-
-                <Box sx={style}>
+            <CustomCard
+                title="AGREGAR PRODUCTO."
+                error={errorText}
+                formContent={
                     <form style={{
                         display: "flex",
                         flexDirection: "column",
@@ -55,17 +39,6 @@ const RegisterProduct = ({ open, handleClose, setProductoCreado }) => {
                         alignItem: "center",
                         //height: "520px",
                     }} onSubmit={handleSubmit}>
-
-                        <Typography id="modal-modal-title" variant="h6" component="h2">
-                            Agregar producto.
-                        </Typography>
-
-                        {errorText && <span style={{ color: 'red' }}>{errorText}</span>}{/*si hay error lo muestra aca.*/}
-
-                        {/*<Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                            Alguna descripción.
-                        </Typography}>*/}
-
                         <div>
                             <CustomTextField
                                 //id="outlined-basic"
@@ -132,20 +105,12 @@ const RegisterProduct = ({ open, handleClose, setProductoCreado }) => {
                                 fullWidth={true}
                             />
                         </div>
-                        {/*<div>
-                    <label htmlFor="email">Ingrese su email:</label>
-                    <input placeholder='joeDoe@gmail.com' id='email' name='email' />
-                </div>
-                <div>
-                    <label htmlFor="password">Ingrese su contraeña:</label>
-                    <input type='text' placeholder='******' id='password' name='password' />
-                </div>*/}
                         <Button type="submit" variant="contained" color="primary" sx={{ mt: 1 }}>AGREGAR</Button>
                     </form>
-                </Box>
-            </Modal>
+                }
+            >
+            </CustomCard>
         </>
     )
 }
-
 export default RegisterProduct

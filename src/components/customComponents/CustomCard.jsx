@@ -55,7 +55,7 @@ const CustomCard = ({ title, error, subtitle, description, formContent, detail, 
                         </CardContent>
 
                         <CardActions>
-                            <Button onClick={onButtonClick} size="small">{buttonText}</Button>
+                            <Button onClick={onButtonClick} size="small" fullWidth>{buttonText}</Button>
                         </CardActions>
                     </Card>
                 </Grid>
