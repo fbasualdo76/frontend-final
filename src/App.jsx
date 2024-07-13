@@ -4,7 +4,11 @@ import NavBar from './components/navBar/NavBar'
 function App() {
   return (
     <>
-      <NavBar />
+      <header>
+        <nav>
+          <NavBar />
+        </nav>
+      </header>
       <main>
         <RouterApp />
       </main>
