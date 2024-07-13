@@ -4,6 +4,7 @@ import CustomTextField from '../../customComponents/CustomTextField'
 import { obtenerDetalleProducto, actualizarProducto } from '../../fetching/products.fetching'
 import { Button } from '@mui/material';
 import CustomCard from '../../customComponents/CustomCard';
+import { verifyToken } from '../../fetching/auth.fetching';
 
 const EditProduct = () => {
     const { id } = useParams()
@@ -13,6 +14,15 @@ const EditProduct = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
+
+        verifyToken()
+            .then(result => {//.then es otra forma de resolver promesas. El result es el retorno de la función asíncrona en fetching/auth.fetching.js/verifyToken.
+                //console.log(result)
+                if (!result.status == 200) {
+                    navigate('/login')
+                }
+            })
+
         const fetchData = async () => {
             try {
                 const productoObtenido = await obtenerDetalleProducto(id)
@@ -40,7 +50,7 @@ const EditProduct = () => {
             }
             await actualizarProducto(id, producto)
             setErrorText('')
-            navigate('/home')
+            navigate('/')
         } catch (error) {//4. captura el error que viene el auth.fetching y setea el mensaje en el estado de errorText.
             setErrorText(error.message)
         }

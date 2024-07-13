@@ -1,22 +1,38 @@
 import { AppBar, Box, Button, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { verifyToken } from "../fetching/auth.fetching";
 
 const NavBar = ({ window/*, handleOpen*/ }) => {
   const navigate = useNavigate()
   const [mobileOpen, setMobileOpen] = useState(false);
   const drawerWidth = 240;
   const navItems = ['AGREGAR PRODUCTO'/*,'OTRO LINK'*/];
+
+  const handleNavigation = (path) => {
+    verifyToken()
+      .then(result => {
+        //console.log(result);
+        if (result && result.status === 200) {
+          navigate(path); // Navegar al path especificado
+        } else {
+          navigate('/login'); // Redirigir a la página de inicio de sesión
+        }
+      })
+      .catch(error => {
+        console.error('Error verifying token:', error);
+        navigate('/login'); // Redirigir a la página de inicio de sesión en caso de error
+      });
+  };
+
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
   const handleClick = (item) => {
     switch (item) {
       case 'AGREGAR PRODUCTO':
-        //handleOpen();
-        navigate('/registerproduct')
+        handleNavigation('/registerproduct');
         break;
       default:
         console.log('No se reconoce la acción');
@@ -25,7 +41,11 @@ const NavBar = ({ window/*, handleOpen*/ }) => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', backgroundColor: '#1976d2', height: '100%' }}>
       <Typography variant="h6" sx={{ my: 2, color: '#fff' }}>
-        Mis productos
+
+        <Link to={`/`} style={{ textDecoration: 'none', color: 'white' }} onClick={() => handleNavigation('/')}>
+          Mis productos
+        </Link>
+
       </Typography>
       <Divider sx={{ backgroundColor: '#fff' }} />
       <List>
@@ -59,7 +79,10 @@ const NavBar = ({ window/*, handleOpen*/ }) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            Mis productos
+            <Link to={`/`} style={{ textDecoration: 'none', color: 'white' }} onClick={() => handleNavigation('/')}>
+              Mis productos
+            </Link>
+
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (

@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CustomTextField from '../../customComponents/CustomTextField'
 import { registrarProducto } from '../../fetching/products.fetching'
 import { Button } from '@mui/material';
 import CustomCard from '../../customComponents/CustomCard';
+import { verifyToken } from '../../fetching/auth.fetching';
 
 const RegisterProduct = () => {
     const [errorText, setErrorText] = useState('')
@@ -21,11 +22,22 @@ const RegisterProduct = () => {
             }
             await registrarProducto(producto)
             setErrorText('')
-            navigate('/home'); // redirige a la página de inicio
+            navigate('/'); // redirige a la página de inicio
         } catch (error) {//4. captura el error que viene el auth.fetching y setea el mensaje en el estado de errorText.
             setErrorText(error.message)
         }
     }
+
+    useEffect(() => {
+        verifyToken()
+            .then(result => {//.then es otra forma de resolver promesas. El result es el retorno de la función asíncrona en fetching/auth.fetching.js/verifyToken.
+                //console.log(result)
+                if (!result.status == 200) {
+                    navigate('/login')
+                }
+            })
+    }, [])
+
     return (
         <>
             <CustomCard

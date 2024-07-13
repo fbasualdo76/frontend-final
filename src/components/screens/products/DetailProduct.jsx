@@ -1,16 +1,27 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { obtenerDetalleProducto } from '../../fetching/products.fetching'
 import { Button, CardMedia } from '@mui/material'
 import CustomCard from '../../customComponents/CustomCard'
+import { verifyToken } from '../../fetching/auth.fetching'
 
 const DetailProduct = () => {
     const { id } = useParams()
     const [loading, setLoading] = useState(true)
     const [producto, setProducto] = useState(null)
     const [errorText, setErrorText] = useState('')
+    const navigate = useNavigate()
 
     useEffect(() => {
+
+        verifyToken()
+            .then(result => {//.then es otra forma de resolver promesas. El result es el retorno de la función asíncrona en fetching/auth.fetching.js/verifyToken.
+                //console.log(result)
+                if (!result.status == 200) {
+                    navigate('/login')
+                }
+            })
+
         const fetchData = async () => {
             try {
                 const productoObtenido = await obtenerDetalleProducto(id)
@@ -50,7 +61,7 @@ const DetailProduct = () => {
                             </div>
                         }
                         buttonText={
-                        <Button type="submit" variant="contained" color="primary" sx={{ mt: 1 }} fullWidth>AGREGAR AL CARRITO</Button>
+                            <Button type="submit" variant="contained" color="primary" sx={{ mt: 1 }} fullWidth>AGREGAR AL CARRITO</Button>
                         }
                     >
                     </CustomCard >

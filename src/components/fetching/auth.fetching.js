@@ -37,10 +37,7 @@ export const verifyToken = async () => {
         headers.append('Authorization', token)
         const result = await HTTP.GET(URL.URL_API + ROUTE + '/verify-token', headers)
         //console.log(result)
-        return result//Este resultado se captura en el .then(resultado) de RouterApp.jsx.
+        return result//Este result se captura en el .then(result) de RouterApp.jsx.
     } catch (error) {
-        console.log(error)
-    }
-
-
+        console.log(error)}
 }

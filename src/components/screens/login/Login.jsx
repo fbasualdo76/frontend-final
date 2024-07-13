@@ -17,7 +17,7 @@ const Login = () => {
             }
             await login(usuario)
             setErrorText('')
-            navigate('/home')
+            navigate('/')
         } catch (error) {//4. captura el error que viene el auth.fetching y setea el mensaje en el estado de errorText.
             setErrorText(error.message)
         }

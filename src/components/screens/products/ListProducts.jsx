@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import { obtenerProductos } from '../../fetching/products.fetching'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import CardProduct from '../../card/CardProduct'
+import { verifyToken } from '../../fetching/auth.fetching'
 
 const ListProducts = () => {
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
     const [errorText, setErrorText] = useState('')
+    const navigate = useNavigate()
 
     useEffect(() => {
+
+        verifyToken()
+            .then(result => {//.then es otra forma de resolver promesas. El result es el retorno de la función asíncrona en fetching/auth.fetching.js/verifyToken.
+                //console.log(result)
+                if (!result.status == 200) {
+                    navigate('/login')
+                }
+            })
+
         const fetchData = async () => {
             try {
                 const productosObtenidos = await obtenerProductos()
@@ -38,7 +49,7 @@ const ListProducts = () => {
                     gap: "30px",
                     padding: "20px",
                     flexWrap: "wrap",
-                    marginTop: '54px', // Add margin at the top
+                    marginTop: '60px', // Add margin at the top
                 }}>
 
                     {productos.map((producto) => (

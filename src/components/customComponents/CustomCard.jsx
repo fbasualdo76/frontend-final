@@ -23,8 +23,9 @@ const CustomCard = ({ title, error, subtitle, description, formContent, detail, 
 
             <Grid container alignItems={"center"}
                 justifyContent={"space-evenly"}
+                mt={10}
             >
-                <Grid item xs={12} sm={9} md={7}>
+                <Grid item xs={11} sm={9} md={7}>
                     <Card>
                         <CardContent>
                             <Typography variant="h5" component="div">
