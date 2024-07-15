@@ -1,8 +1,3 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# frontend-final.
+**GIT | GITHUB | HTML | CSS | JAVASCRIPT | MATERIAL UI | REACTJS + VITE**  
+En el frontend incluyo pantallas para **listar, registrar, editar y eliminar** productos, así como para mostrar los detalles de los mismos. También manejo la interfaz para la **autenticación de usuarios** mediante un proceso de **login**. En los archivos **fetching** manejo las operaciones relacionadas con los productos y la autenticación de usuarios, estos archivos utilizan el archivo **HTTP** para realizar **solicitudes HTT**P de manera genérica y reutilizable. Implemento **interfaces responsivas** con el uso del componente **GRID de MATERIAL U**I. Además, utilizo **componentes personalizados** para los formularios y mostrar los detalles de los productos. En cuanto a librerias utilizo **REACT** para construir la interfaz de usuario, **REACT-ROUTER-DOM** en la getión de las rutas y **MATERIAL UI** para los componentes preestablecidos y personalizables.
